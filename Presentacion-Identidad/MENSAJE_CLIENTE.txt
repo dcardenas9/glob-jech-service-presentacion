@@ -1,0 +1,118 @@
+================================================================================
+COMUNICACIÓN Y SEGUIMIENTO POR ETAPAS (GDB STUDIO) - GLOB STUDIO
+================================================================================
+
+Este documento está estructurado según el flujo de trabajo real:
+- ETAPA 1: Envío de la Propuesta de Identidad (Revisión y Aprobación inicial)
+- ETAPA 2: Entrega de la Documentación Completa (Dossier Estratégico y Manual de Marca)
+- (EXTRA): Entrega completa en un solo mensaje si fuera requerido.
+
+================================================================================
+ETAPA 1: ENVÍO DE LA PROPUESTA DE IDENTIDAD (Para revisión, observaciones y cambios)
+================================================================================
+
+--- [1.A] CORREO ELECTRÓNICO (Presentación Inicial de la Propuesta) ---
+
+Asunto: Propuesta de Identidad Visual | GDB Studio ✦ Glob Studio
+
+Estimado equipo de GDB Studio,
+
+Es un placer saludarles. Desde Glob Studio nos emociona compartir con ustedes la primera etapa del proyecto: la Propuesta de Identidad Visual para GDB Studio.
+
+En esta presentación interactiva podrán explorar el concepto visual, la construcción del logotipo, la dirección estética y diversas aplicaciones pensadas para proyectar el valor y la identidad de la marca.
+
+Pueden acceder directamente a la propuesta en el siguiente enlace:
+👉 https://dcardenas9.github.io/glob-gdb-studio-presentacion/Presentacion-Identidad/01_Propuesta-de-Identidad.html
+
+💡 Nota: La presentación es interactiva y en la esquina superior cuentan con la opción de descargarla o imprimirla en PDF.
+
+📌 Proceso de revisión y ajustes:
+Tómense el tiempo de analizarla en equipo. Recuerden que contamos con rondas de ajustes (hasta 2-3 instancias de cambios) para afinar cualquier detalle u observación que consideren oportuna. 
+
+Quedamos muy atentos a sus comentarios para aplicar los ajustes necesarios o, en caso de estar 100% conformes, dar el visto bueno y avanzar con el Dossier Estratégico y el Manual de Marca.
+
+Atentamente,
+El equipo de Glob Studio
+
+
+--- [1.B] MENSAJE RÁPIDO PARA WHATSAPP / TELEGRAM ---
+
+¡Hola [Nombre]! 👋 ¡Ya está lista la primera etapa con la propuesta de identidad para *GDB Studio*! 🚀
+
+Preparamos una presentación interactiva donde podrás ver el concepto, el logotipo y sus aplicaciones:
+
+✨ *Ver Propuesta de Identidad:*
+👉 https://dcardenas9.github.io/glob-gdb-studio-presentacion/Presentacion-Identidad/01_Propuesta-de-Identidad.html
+
+(En la parte superior también tienes la opción de descargar en PDF).
+
+Míralo con calma junto al equipo. Si tienen observaciones o ajustes puntuales, me los comentas (contamos con rondas de cambios para dejarlo perfecto) o coordinamos una llamada para revisarlo juntos antes de avanzar a la siguiente etapa. ¡Un abrazo!
+
+
+================================================================================
+ETAPA 2: ENTREGA DE DOSSIER Y MANUAL (Revisión de documentación)
+================================================================================
+
+--- [2.A] CORREO ELECTRÓNICO (Entrega de Documentación y Guías) ---
+
+Asunto: Dossier Estratégico y Manual de Marca | GDB Studio ✦ Glob Studio
+
+Estimado equipo de GDB Studio,
+
+Con la propuesta de identidad visual definida, les compartimos la documentación estratégica y técnica desarrollada para la marca:
+
+1. Dossier Estratégico de Marca
+Detalla la propuesta de valor, pilares conceptuales, posicionamiento y tono de comunicación.
+👉 https://dcardenas9.github.io/glob-gdb-studio-presentacion/Presentacion-Identidad/02_Dossier-Estrategico.html
+
+2. Manual de Marca y Normas Gráficas
+Guía técnica con paletas cromáticas, tipografías, grillas de construcción, zonas de seguridad, usos correctos y restricciones.
+👉 https://dcardenas9.github.io/glob-gdb-studio-presentacion/Presentacion-Identidad/03_Manual-de-Marca.html
+
+💡 Nota: Ambos documentos cuentan con la opción de descarga en PDF desde el botón superior.
+
+Les invitamos a revisar ambos documentos. Si tienen alguna observación, duda o ajuste final sobre el contenido o las normativas, nos lo hacen saber para dejarlo 100% consolidado.
+
+Atentamente,
+El equipo de Glob Studio
+
+
+--- [2.B] MENSAJE RÁPIDO PARA WHATSAPP / TELEGRAM ---
+
+¡Hola [Nombre]! 👋 Avanzamos a la siguiente etapa: ya están listos el Dossier Estratégico y el Manual de Marca de *GDB Studio*:
+
+📊 *1. Dossier Estratégico:*
+👉 https://dcardenas9.github.io/glob-gdb-studio-presentacion/Presentacion-Identidad/02_Dossier-Estrategico.html
+
+📘 *2. Manual de Marca (Normas técnicas, colores, tipografías y usos):*
+👉 https://dcardenas9.github.io/glob-gdb-studio-presentacion/Presentacion-Identidad/03_Manual-de-Marca.html
+
+Revisalo con calma y cualquier duda u observación que tengan sobre las guías me avisas para afinar los detalles finales. ¡Un saludo!
+
+
+================================================================================
+EXTRA: ENTREGA COMPLETA TODO EN UNO (Si necesitas enviar los 3 juntos)
+================================================================================
+
+--- [EXTRA.A] CORREO ELECTRÓNICO COMPLETO ---
+
+Asunto: Presentación Integral de Marca | GDB Studio ✦ Glob Studio
+
+Estimado equipo de GDB Studio,
+
+Es un placer saludarles. Les compartimos el ecosistema completo de identidad y estrategia desarrollado para GDB Studio:
+
+1. Propuesta de Identidad:
+👉 https://dcardenas9.github.io/glob-gdb-studio-presentacion/Presentacion-Identidad/01_Propuesta-de-Identidad.html
+
+2. Dossier Estratégico:
+👉 https://dcardenas9.github.io/glob-gdb-studio-presentacion/Presentacion-Identidad/02_Dossier-Estrategico.html
+
+3. Manual de Marca:
+👉 https://dcardenas9.github.io/glob-gdb-studio-presentacion/Presentacion-Identidad/03_Manual-de-Marca.html
+
+Quedamos a su disposición.
+
+Atentamente,
+El equipo de Glob Studio
+================================================================================
