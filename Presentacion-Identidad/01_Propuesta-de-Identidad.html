@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="es-AR" class="scroll-smooth">
+<html lang="es-AR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JECH Service — Presentación de Propuestas de Identidad</title>
+    <title>JECH Service - Presentación de Propuestas de Identidad</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -29,7 +27,6 @@
                     fontFamily: {
                         display: ['var(--f-display)'],
                         body: ['var(--f-body)'],
-                        mono: ['var(--f-mono)'],
                     }
                 }
             }
@@ -39,9 +36,9 @@
     <style>
         /*
          * BRIEF DE DISEÑO (GLOB STUDIO)
-         * · Emociones: Confianza, Seguridad, Tranquilidad, Resolución.
-         * · Cliente: JECH Service (Jairo Cárdenas). Perfil técnico y prolijo.
-         * · Tipografía: 'Rubik' (Geométrica, moderna y estructurada) + 'JetBrains Mono' (Técnica).
+         * · Emociones: Confianza, Seguridad, Tranquilidad, Resolución (Extraídas de los enfoques).
+         * · Cliente: Perfil técnico/profesional que busca consolidarse frente a la competencia informal. Evaluará prolijidad, solidez y justificación lógica.
+         * · Tipografía: 'Rubik' (Sans-serif geométrica) lidera en todo el sistema para mantener un tono moderno, accesible y estructurado.
          */
 
         :root {
@@ -52,180 +49,58 @@
             --c-neutro: #E8B547;
             --f-display: 'Rubik', sans-serif;
             --f-body: 'Rubik', sans-serif;
-            --f-mono: 'JetBrains Mono', monospace;
         }
 
-        /* Reset y caja universal */
-        * {
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: var(--f-body);
+            background-color: var(--c-oscuro);
+            color: var(--c-oscuro);
         }
 
-        /* 1. Bloqueo estricto de scroll horizontal en móviles */
-        html,
-        body {
-            overflow-x: hidden;
-            width: 100%;
-            max-width: 100vw;
+        /* Scroll Snap Logic */
+        .presentation-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
         }
 
-        body {
-            font-family: var(--f-body);
-            background-color: #12191F;
-            /* Fondo exterior entre láminas en pantalla */
-            color: var(--c-claro);
-            margin: 0;
-            padding: 1.5rem 0.75rem;
-            /* Padding seguro en teléfonos */
-        }
-
-        .font-display {
-            font-family: var(--f-display);
-        }
-
-        .font-mono {
-            font-family: var(--f-mono);
-        }
-
-        .presentation-container {
+        section {
+            height: 100vh;
             width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-        }
-
-        /* 2. Contenedores de Láminas Editoriales Independientes */
-        .slide {
-            width: 100%;
-            max-width: 1440px;
-            min-height: calc(100vh - 3rem);
-            height: auto;
+            scroll-snap-align: start;
             position: relative;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            margin: 0 auto 2.5rem auto;
-            border: 1px solid rgba(248, 247, 244, 0.12);
-            border-radius: 4px;
-            box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.2);
-            page-break-inside: avoid;
-            page-break-after: always;
-            break-after: page;
-            overflow-x: hidden;
+            justify-content: center;
             box-sizing: border-box;
-        }
-
-        .slide-light {
-            background-color: var(--c-claro) !important;
-            color: var(--c-oscuro) !important;
-            border-color: rgba(30, 39, 46, 0.12) !important;
-        }
-
-        .slide-dark {
-            background-color: var(--c-oscuro) !important;
-            color: var(--c-claro) !important;
-            border-color: rgba(248, 247, 244, 0.12) !important;
-        }
-
-        /* 3. Sección interna con padding fluido según pantalla */
-        .content-layer {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            max-width: 100%;
-            min-height: calc(100vh - 3rem);
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 1.25rem 0.85rem;
-            gap: 1.5rem;
-            box-sizing: border-box;
-            overflow-x: hidden;
-        }
-
-        /* Tablets (>= 640px) */
-        @media (min-width: 640px) {
-            body {
-                padding: 2rem 1.25rem;
-            }
-
-            .slide {
-                margin-bottom: 3rem;
-            }
-
-            .content-layer {
-                padding: 2.25rem 2rem;
-                gap: 2rem;
-            }
-        }
-
-        /* Laptops y Tablets Grandes (>= 768px) */
-        @media (min-width: 768px) {
-            body {
-                padding: 3rem 1.5rem;
-            }
-
-            .content-layer {
-                padding: 3rem 3.5rem;
-            }
-        }
-
-        /* Pantallas Grandes (>= 1280px) */
-        @media (min-width: 1280px) {
-            body {
-                padding: 3.5rem 2rem;
-            }
-
-            .content-layer {
-                padding: 3.5rem 4rem;
-            }
-        }
-
-        /* 4. Prevención universal de ruptura y corte de textos */
-        p,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        span,
-        div {
-            overflow-wrap: break-word;
-            word-break: normal;
         }
 
         /* Art Direction: Watermarks & Patterns */
         .watermark {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             font-family: var(--f-display);
             font-weight: 700;
-            font-size: clamp(5rem, 25vw, 65vh);
-            line-height: 0.8;
             color: var(--c-oscuro);
-            opacity: 0.035;
+            opacity: 0.03;
+            line-height: 0.8;
             pointer-events: none;
             z-index: 0;
-            user-select: none;
-            white-space: nowrap;
-            overflow: hidden;
-            max-width: 100%;
         }
 
         .watermark-light {
             color: var(--c-claro);
-            opacity: 0.045;
+            opacity: 0.05;
         }
 
         .bg-pattern {
             background-image: radial-gradient(var(--c-oscuro) 1px, transparent 1px);
-            background-size: clamp(20px, 4vw, 32px) clamp(20px, 4vw, 32px);
-            opacity: 0.06;
+            background-size: 24px 24px;
+            opacity: 0.05;
             position: absolute;
             inset: 0;
             z-index: 0;
@@ -234,8 +109,8 @@
 
         .bg-pattern-light {
             background-image: radial-gradient(var(--c-claro) 1px, transparent 1px);
-            background-size: clamp(20px, 4vw, 32px) clamp(20px, 4vw, 32px);
-            opacity: 0.06;
+            background-size: 24px 24px;
+            opacity: 0.05;
             position: absolute;
             inset: 0;
             z-index: 0;
@@ -252,8 +127,8 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 12px;
-            height: 12px;
+            width: 15px;
+            height: 15px;
             border-top: 1px solid var(--c-acento);
             border-left: 1px solid var(--c-acento);
         }
@@ -263,359 +138,52 @@
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 12px;
-            height: 12px;
+            width: 15px;
+            height: 15px;
             border-bottom: 1px solid var(--c-acento);
             border-right: 1px solid var(--c-acento);
         }
 
-        /* Marcas de registro arquitectónicas */
-        .reg-mark {
-            position: absolute;
-            width: 14px;
-            height: 14px;
-            pointer-events: none;
-            z-index: 20;
-        }
-
-        .reg-mark::before {
-            content: '';
-            position: absolute;
-            top: 6px;
-            left: 0;
-            width: 14px;
-            height: 1px;
-            background-color: currentColor;
-            opacity: 0.25;
-        }
-
-        .reg-mark::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 6px;
-            width: 1px;
-            height: 14px;
-            background-color: currentColor;
-            opacity: 0.25;
-        }
-
-        .rm-tl {
-            top: 0.75rem;
-            left: 0.75rem;
-        }
-
-        .rm-tr {
-            top: 0.75rem;
-            right: 0.75rem;
-        }
-
-        .rm-bl {
-            bottom: 0.75rem;
-            left: 0.75rem;
-        }
-
-        .rm-br {
-            bottom: 0.75rem;
-            right: 0.75rem;
-        }
-
-        img {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-preview-card {
-            transition: all 0.3s ease;
+        /* Content Z-index */
+        .content-layer {
             position: relative;
-        }
-
-        .logo-preview-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
-        }
-
-        .logo-preview-card:hover img {
-            transform: scale(1.18);
-        }
-
-        .badge {
-            font-family: var(--f-mono);
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 0.3rem 0.65rem;
-            border: 1px solid rgba(30, 39, 46, 0.2);
-            border-radius: 2px;
-            display: inline-block;
-            font-weight: 600;
-        }
-
-        .card-tag-dark {
-            position: absolute;
-            top: 0.85rem;
-            left: 0.85rem;
-            font-family: var(--f-mono);
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: #F8F7F4;
-            background: rgba(255, 255, 255, 0.12);
-            padding: 0.25rem 0.65rem;
-            border-radius: 3px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
             z-index: 10;
         }
 
-        .card-tag-light {
-            position: absolute;
-            top: 0.85rem;
-            left: 0.85rem;
-            font-family: var(--f-mono);
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: #1E272E;
-            background: rgba(30, 39, 46, 0.08);
-            padding: 0.25rem 0.65rem;
-            border-radius: 3px;
-            border: 1px solid rgba(30, 39, 46, 0.18);
-            z-index: 10;
-        }
-
-        /* Nav flotante discreta */
-        .nav-bullets {
-            position: fixed;
-            right: 1.25rem;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 50;
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-        }
-
-        .nav-bullet {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(248, 247, 244, 0.25);
-            transition: all 0.25s ease;
-            cursor: pointer;
-        }
-
-        .nav-bullet:hover,
-        .nav-bullet.active {
-            background: var(--c-acento);
-            transform: scale(1.4);
-        }
-
-        @media (max-width: 768px) {
-            .nav-bullets {
-                display: none;
-            }
-        }
-
-        /* =============================================================================
-           5. REGLAS ESTRICTAS DE EXPORTACIÓN NATIVA PDF (A4 LANDSCAPE 297mm x 210mm)
-           ============================================================================= */
+        /* Exportación a PDF a prueba de balas */
         @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body,
+            html,
+            .presentation-container {
+                display: block !important;
+                height: auto !important;
+                overflow: visible !important;
+                background-color: var(--c-claro) !important;
+            }
+
+            section {
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                page-break-after: always !important;
+                break-after: page !important;
+                height: 100vh !important;
+                max-height: 100vh !important;
+                width: 100% !important;
+                overflow: hidden !important;
+                box-sizing: border-box !important;
+                padding: 5vh 5vw !important;
+                /* Márgenes internos fijos para impresión */
+            }
+
             @page {
                 size: A4 landscape;
                 margin: 0 !important;
-            }
-
-            *,
-            *::before,
-            *::after {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                box-sizing: border-box !important;
-            }
-
-            /* Reset estricto de fondo y dimensiones del viewport */
-            html,
-            body,
-            main,
-            .presentation-container {
-                width: 297mm !important;
-                height: auto !important;
-                min-height: 100% !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                background: transparent !important;
-                background-color: transparent !important;
-                overflow: visible !important;
-                max-width: none !important;
-            }
-
-            .no-print,
-            .nav-bullets {
-                display: none !important;
-            }
-
-            /* Bloqueo exacto de cada lámina a dimensiones A4 horizontal */
-            .slide {
-                width: 297mm !important;
-                height: 210mm !important;
-                max-width: 297mm !important;
-                max-height: 210mm !important;
-                min-height: 210mm !important;
-                overflow: hidden !important;
-                border: none !important;
-                border-radius: 0 !important;
-                box-shadow: none !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                page-break-inside: avoid !important;
-                page-break-after: always !important;
-                page-break-before: auto !important;
-                break-inside: avoid-page !important;
-                break-after: page !important;
-                break-before: auto !important;
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: space-between !important;
-                position: relative !important;
-            }
-
-            .slide-light {
-                background-color: #F8F7F4 !important;
-                color: #1E272E !important;
-            }
-
-            .slide-dark {
-                background-color: #1E272E !important;
-                color: #F8F7F4 !important;
-            }
-
-            .slide:last-of-type,
-            .slide:last-child {
-                page-break-after: avoid !important;
-                break-after: avoid !important;
-            }
-
-            /* Padding interno en milímetros */
-            .content-layer {
-                width: 100% !important;
-                height: 210mm !important;
-                max-height: 210mm !important;
-                min-height: 210mm !important;
-                padding: 8mm 12mm !important;
-                gap: 0.4rem !important;
-                box-sizing: border-box !important;
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: space-between !important;
-                overflow: hidden !important;
-                z-index: 10 !important;
-            }
-
-            /* FORZADO DE GRILLAS DIRECTAS (No dependen del ancho de pantalla del navegador) */
-            .layout-adn-main {
-                display: grid !important;
-                grid-template-columns: 6.8fr 5.2fr !important;
-                gap: 2rem !important;
-                align-items: center !important;
-                width: 100% !important;
-            }
-
-            .layout-proposal-main {
-                display: grid !important;
-                grid-template-columns: 3fr 9fr !important;
-                gap: 1.5rem !important;
-                align-items: center !important;
-                width: 100% !important;
-            }
-
-            .layout-proposal-cards {
-                display: grid !important;
-                grid-template-columns: repeat(3, 1fr) !important;
-                gap: 1rem !important;
-                align-items: center !important;
-                width: 100% !important;
-            }
-
-            .layout-compare-cards {
-                display: grid !important;
-                grid-template-columns: repeat(3, 1fr) !important;
-                gap: 1.2rem !important;
-                width: 100% !important;
-            }
-
-            .layout-compare-bottom {
-                display: grid !important;
-                grid-template-columns: 7.5fr 4.5fr !important;
-                gap: 1.5rem !important;
-                width: 100% !important;
-            }
-
-            .layout-closing-cards {
-                display: grid !important;
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 1rem !important;
-                width: 100% !important;
-            }
-
-            .logo-preview-card {
-                width: 100% !important;
-                height: auto !important;
-                max-height: 125mm !important;
-                aspect-ratio: 1 / 1 !important;
-                padding: 0.5rem !important;
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                justify-content: center !important;
-            }
-
-            .logo-preview-card img {
-                max-height: 102mm !important;
-                max-width: 95% !important;
-                width: 90% !important;
-                object-fit: contain !important;
-            }
-
-            .card-tag-dark,
-            .card-tag-light {
-                display: block !important;
-                opacity: 1 !important;
-                visibility: visible !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-
-            .layout-compare-cards img {
-                max-height: 60mm !important;
-                max-width: 95% !important;
-                object-fit: contain !important;
-            }
-
-            /* Contención vertical */
-            header {
-                padding-bottom: 2mm !important;
-                margin-bottom: 0 !important;
-            }
-
-            footer {
-                padding-top: 2mm !important;
-                margin-top: 0 !important;
-            }
-
-            main {
-                margin-top: auto !important;
-                margin-bottom: auto !important;
-                padding-top: 1mm !important;
-                padding-bottom: 1mm !important;
-            }
-
-            .watermark {
-                opacity: 0.03 !important;
-                z-index: 0 !important;
             }
         }
     </style>
@@ -623,639 +191,378 @@
 
 <body>
 
-    <!-- BOTÓN FLOTANTE DE EXPORTACIÓN PDF (SOLO PANTALLA) -->
-    <div class="no-print fixed bottom-5 right-5 z-50">
-        <button onclick="window.print()" title="Exportar o Imprimir PDF"
-            class="hover:opacity-90 active:scale-95 text-white font-bold px-4 py-2.5 rounded-full transition-all shadow-2xl flex items-center gap-2 border border-white/20 backdrop-blur-sm font-mono text-xs cursor-pointer"
-            style="background-color: var(--c-acento);">
-            <span>PDF</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-            </svg>
-        </button>
-    </div>
-
-    <!-- Navegación lateral sutil para el presentador -->
-    <nav class="nav-bullets no-print" aria-label="Navegación de diapositivas">
-        <a href="#slide-1" class="nav-bullet" title="Portada"></a>
-        <a href="#slide-2" class="nav-bullet" title="01. Estrategia Base"></a>
-        <a href="#slide-3" class="nav-bullet" title="02. Propuesta A"></a>
-        <a href="#slide-4" class="nav-bullet" title="03. Propuesta B"></a>
-        <a href="#slide-5" class="nav-bullet" title="04. Propuesta C"></a>
-        <a href="#slide-6" class="nav-bullet" title="05. Comparativa y Veredicto"></a>
-        <a href="#slide-7" class="nav-bullet" title="06. Aplicación Visual"></a>
-        <a href="#slide-8" class="nav-bullet" title="07. Próximos Pasos"></a>
-    </nav>
-
     <main class="presentation-container">
 
         <!-- 01. PORTADA -->
-        <section id="slide-1" class="slide slide-dark bg-oscuro text-claro">
+        <section class="bg-oscuro text-claro p-12 lg:p-24">
             <div class="bg-pattern-light"></div>
-            <div class="watermark watermark-light">J</div>
+            <div class="watermark watermark-light text-[50vw] -right-10 -bottom-20 tracking-tighter">J</div>
 
-            <div class="content-layer flex flex-col justify-between items-center text-center">
-                <!-- Header Técnico -->
-                <header
-                    class="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-claro/10 pb-3.5 gap-2">
-                    <div class="flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-acento"></span>
-                        <span class="font-mono text-[10px] tracking-[0.25em] uppercase text-acento font-bold">GLOB
-                            STUDIO</span>
-                    </div>
-                    <div class="font-mono text-[10px] text-claro/50 uppercase tracking-widest">
-                        FASE 02 · PROPUESTAS DE IDENTIDAD
-                    </div>
-                </header>
-
-                <!-- Cuerpo Central -->
-                <div class="my-auto py-8">
-                    <div class="inline-flex items-center gap-3 mb-6">
-                        <span class="w-8 h-[1px] bg-acento"></span>
-                        <span class="font-mono text-xs uppercase tracking-[0.3em] text-acento font-bold">DISEÑO DE
-                            IDENTIDAD VISUAL</span>
-                        <span class="w-8 h-[1px] bg-acento"></span>
-                    </div>
-
-                    <h1
-                        class="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-2 text-claro">
-                        JECH
-                    </h1>
-                    <h2
-                        class="font-display text-3xl sm:text-4xl md:text-5xl font-light tracking-[0.25em] mb-8 text-claro/90">
-                        SERVICE
-                    </h2>
-
-                    <div
-                        class="tech-border p-6 sm:p-8 inline-block backdrop-blur-sm bg-oscuro/60 border border-claro/10 max-w-xl">
-                        <p class="text-base sm:text-xl text-claro/90 tracking-widest uppercase font-light">Sistema de
-                            Identidad de Marca</p>
-                        <p class="text-xs sm:text-sm text-acento mt-2 tracking-widest uppercase font-mono font-medium">
-                            Presentación de Propuestas de Logo</p>
-                    </div>
+            <div class="content-layer h-full flex flex-col justify-center items-center text-center">
+                <div class="text-acento text-sm tracking-[0.3em] uppercase mb-6 font-bold flex items-center gap-4">
+                    <span class="w-12 h-[1px] bg-acento"></span>
+                    GLOB STUDIO
+                    <span class="w-12 h-[1px] bg-acento"></span>
                 </div>
+                <h1 class="font-display text-7xl lg:text-9xl font-bold tracking-tight mb-4 text-claro">JECH</h1>
+                <h2 class="font-display text-4xl lg:text-5xl font-light tracking-widest mb-12 text-claro">SERVICE</h2>
 
-                <!-- Footer Técnico -->
-                <footer
-                    class="w-full border-t border-claro/10 pt-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs font-mono text-claro/50">
-                    <div class="flex items-center gap-4">
-                        <span>CLIENTE: JECH SERVICE</span>
-                        <span class="opacity-30">|</span>
-                        <span>RESPONSABLE: JAIRO CÁRDENAS</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-acento font-semibold uppercase tracking-widest">LÁMINA 01 / 08</span>
-                    </div>
-                </footer>
+                <div class="tech-border p-8 inline-block mt-8 backdrop-blur-sm bg-oscuro/50 border border-claro/10">
+                    <p class="text-xl text-claro/80 tracking-widest uppercase font-light">Sistema de Identidad</p>
+                    <p class="text-sm text-acento mt-2 tracking-widest uppercase">Presentación de Propuestas</p>
+                </div>
             </div>
         </section>
 
         <!-- 02. EL ADN DE LA MARCA -->
-        <section id="slide-2" class="slide slide-light">
+        <section class="bg-claro p-12 lg:p-24">
             <div class="bg-pattern"></div>
-            <div class="watermark">ADN</div>
+            <div class="watermark text-[30vw] -left-20 top-0">ADN</div>
 
-            <div class="content-layer flex flex-col justify-between">
-                <header
-                    class="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-oscuro/10 pb-3.5 gap-2">
-                    <div>
-                        <span class="text-acento font-bold font-mono tracking-widest uppercase text-xs block mb-0.5">01
-                            / Estrategia Base</span>
-                        <h2 class="text-3xl sm:text-4xl font-display font-bold text-oscuro tracking-tight">El ADN de la
-                            Marca</h2>
-                    </div>
-                    <span class="font-mono text-[10px] text-oscuro/50 uppercase tracking-widest">FUNDAMENTOS
-                        ESTRATÉGICOS</span>
+            <div class="content-layer h-full flex flex-col justify-center max-w-7xl mx-auto w-full">
+                <header class="mb-12 border-b border-oscuro/10 pb-6">
+                    <h3 class="text-acento font-bold tracking-widest uppercase text-sm mb-2">01 / Estrategia Base</h3>
+                    <h2 class="text-5xl font-display font-bold text-oscuro tracking-tight">El ADN de la Marca</h2>
                 </header>
 
-                <main class="layout-adn-main grid grid-cols-1 lg:grid-cols-12 gap-8 my-auto py-4">
-                    <div class="col-span-12 lg:col-span-7 space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+                    <div class="col-span-2 space-y-8">
                         <div>
-                            <h4 class="text-xs uppercase tracking-widest text-oscuro/50 font-bold mb-3 font-mono">
-                                Concepto Central</h4>
-                            <p class="text-xl sm:text-2xl text-oscuro font-light leading-relaxed">
-                                Una identidad diseñada para proyectar <strong
-                                    class="font-bold text-oscuro">Confianza</strong> y <strong
-                                    class="font-bold text-oscuro">Seguridad</strong>. Pasamos de la simple prestación de
-                                servicios a posicionar a la marca como un referente <strong
-                                    class="font-semibold text-acento">prolijo, metódico y resolutivo</strong> en la
-                                seguridad del hogar y la climatización.
+                            <h4 class="text-xs uppercase tracking-widest text-oscuro/50 font-bold mb-3">Concepto Central
+                            </h4>
+                            <p class="text-2xl text-oscuro font-light leading-relaxed">
+                                Una identidad diseñada para proyectar <strong>Confianza</strong> y
+                                <strong>Seguridad</strong>. Pasamos de la simple prestación de servicios a posicionar a
+                                la marca como un referente <strong>prolijo, metódico y resolutivo</strong> en el cuidado
+                                del hogar y la climatización.
                             </p>
                         </div>
-                        <div class="flex flex-wrap gap-3 pt-2">
+                        <div class="flex gap-4">
                             <span
-                                class="px-4 py-2 bg-oscuro text-claro text-xs uppercase tracking-widest font-mono font-medium rounded-xs">Profesionalismo</span>
+                                class="px-4 py-2 bg-oscuro text-claro text-xs uppercase tracking-widest">Profesionalismo</span>
                             <span
-                                class="px-4 py-2 bg-acento text-claro text-xs uppercase tracking-widest font-mono font-medium rounded-xs">Tranquilidad</span>
+                                class="px-4 py-2 bg-acento text-claro text-xs uppercase tracking-widest">Tranquilidad</span>
                             <span
-                                class="px-4 py-2 bg-acento2 text-claro text-xs uppercase tracking-widest font-mono font-medium rounded-xs">Solidez</span>
+                                class="px-4 py-2 bg-acento2 text-claro text-xs uppercase tracking-widest">Solidez</span>
                         </div>
                     </div>
 
-                    <div
-                        class="col-span-12 lg:col-span-5 border-t lg:border-t-0 lg:border-l border-oscuro/15 pt-6 lg:pt-0 lg:pl-8 space-y-6">
-                        <div class="bg-white/60 p-5 rounded-sm border border-oscuro/10 shadow-xs">
-                            <h4 class="text-xs uppercase tracking-widest text-acento font-bold mb-2 font-mono">Arquetipo
+                    <div class="border-l border-oscuro/20 pl-8 space-y-8">
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest text-oscuro/50 font-bold mb-3">Arquetipo
                                 Principal</h4>
                             <p class="text-xl font-bold text-oscuro">El Cuidador / El Héroe</p>
-                            <p class="text-xs sm:text-sm mt-2 text-oscuro/75 leading-relaxed">
-                                Aquel que protege a la familia y mascotas, resuelve con precisión técnica y brinda un
-                                servicio estructurado y confiable desde el primer contacto.
+                            <p class="text-sm mt-2 text-oscuro/70 leading-relaxed">Aquel que protege, resuelve problemas
+                                con precisión y brinda un servicio estructurado y confiable desde el primer contacto.
                             </p>
                         </div>
-                        <div class="bg-white/60 p-5 rounded-sm border border-oscuro/10 shadow-xs">
-                            <h4 class="text-xs uppercase tracking-widest text-acento font-bold mb-2 font-mono">Tono
-                                Visual</h4>
-                            <p class="text-xs sm:text-sm text-oscuro/80 leading-relaxed font-mono">
-                                Geométrico, balanceado, limpio. Ausencia de ruido visual para comunicar máxima
-                                eficiencia y prolijidad.
-                            </p>
+                        <div>
+                            <h4 class="text-xs uppercase tracking-widest text-oscuro/50 font-bold mb-3">Tono Visual</h4>
+                            <p class="text-sm font-mono text-oscuro/70 leading-relaxed">Geométrico, balanceado, limpio.
+                                Ausencia de ruido visual para comunicar eficiencia.</p>
                         </div>
                     </div>
-                </main>
-
-                <footer
-                    class="w-full border-t border-oscuro/10 pt-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs font-mono text-oscuro/50">
-                    <span>PILAR: SEGURIDAD DEL HOGAR & CLIMATIZACIÓN</span>
-                    <span class="text-acento font-semibold uppercase tracking-widest">LÁMINA 02 / 08</span>
-                </footer>
+                </div>
             </div>
         </section>
 
         <!-- 03. PROPUESTA A -->
-        <section id="slide-3" class="slide slide-light">
-            <div class="bg-pattern"></div>
-            <div class="watermark">A</div>
+        <section class="bg-claro p-12 lg:p-24">
+            <div class="watermark text-[40vw] right-0 bottom-0 leading-none">A</div>
 
-            <div class="content-layer flex flex-col justify-between">
-                <header
-                    class="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-oscuro/10 pb-3.5 gap-2">
+            <div class="content-layer h-full flex flex-col max-w-7xl mx-auto w-full">
+                <header class="mb-8 flex justify-between items-end border-b border-oscuro/10 pb-6">
                     <div>
-                        <span class="text-acento font-bold font-mono tracking-widest uppercase text-xs block mb-0.5">02
-                            / Propuesta A</span>
-                        <h2 class="text-3xl sm:text-4xl font-display font-bold text-oscuro tracking-tight">El Guardián
-                            Geométrico</h2>
+                        <h3 class="text-acento font-bold tracking-widest uppercase text-sm mb-2">02 / Propuesta A</h3>
+                        <h2 class="text-4xl font-display font-bold text-oscuro tracking-tight">El Guardián Geométrico
+                        </h2>
                     </div>
-                    <div class="flex gap-2">
-                        <span class="badge border-oscuro/20 text-oscuro">Isologo</span>
-                        <span class="badge border-oscuro/20 text-oscuro">Rubik</span>
+                    <div class="flex gap-3">
+                        <span
+                            class="px-3 py-1 border border-oscuro/20 text-oscuro text-xs uppercase tracking-widest font-bold">Isologo</span>
+                        <span
+                            class="px-3 py-1 border border-oscuro/20 text-oscuro text-xs uppercase tracking-widest font-bold">Rubik</span>
                     </div>
                 </header>
 
-                <main
-                    class="layout-proposal-main grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto py-2">
-                    <div
-                        class="col-span-12 lg:col-span-3 border-b lg:border-b-0 lg:border-r border-oscuro/10 pb-4 lg:pb-0 lg:pr-6 flex flex-col justify-center">
-                        <h4 class="text-xs uppercase tracking-widest text-oscuro/50 font-bold mb-3 font-mono">Enfoque
-                            Conceptual</h4>
-                        <p class="text-sm text-oscuro/85 leading-relaxed mb-4 font-light">
-                            Esta propuesta es una reinterpretación directa y depurada del concepto de <strong>pin de
-                                ubicación</strong> fusionado con la dualidad de los servicios.
-                        </p>
-                        <p class="text-sm text-oscuro/85 leading-relaxed font-light">
-                            Proyecta <strong>Confianza</strong> y <strong>Seguridad</strong> a través de formas robustas
-                            y una composición <strong>Prolija</strong> que resuena con el arquetipo <strong>El
-                                Cuidador</strong>.
+                <div class="grid grid-cols-4 gap-8 flex-grow">
+                    <div class="col-span-1 border-r border-oscuro/10 pr-8 flex flex-col justify-center">
+                        <h4 class="text-xs uppercase tracking-widest text-oscuro/50 font-bold mb-4">Enfoque</h4>
+                        <p class="text-sm text-oscuro/80 leading-relaxed">
+                            Esta propuesta es una reinterpretación directa y depurada del concepto de 'pin de ubicación'
+                            fusionado con la dualidad de los servicios. Proyecta <strong>Confianza</strong> y
+                            <strong>Seguridad</strong> a través de formas robustas y una composición
+                            <strong>Prolija</strong> que resuena con el arquetipo <strong>El Cuidador</strong>.
                         </p>
                     </div>
 
-                    <div
-                        class="layout-proposal-cards col-span-12 lg:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-5 items-center">
+                    <div class="col-span-3 grid grid-cols-3 gap-6 items-center">
                         <!-- Versión Claro -->
                         <div
-                            class="logo-preview-card bg-[#F8F7F4] tech-border p-4 sm:p-6 aspect-square sm:min-h-[280px] lg:min-h-[340px] flex flex-col items-center justify-center shadow-xs border border-oscuro/10 relative rounded-xs">
-                            <span class="card-tag-light">Luz</span>
+                            class="bg-[#F8F7F4] tech-border p-6 aspect-square flex items-center justify-center shadow-sm">
                             <img src="https://raw.githubusercontent.com/dcardenas9/glob-jech-service-presentacion/main/img/Claro.png"
-                                alt="Propuesta A - Fondo Claro"
-                                class="max-h-[82%] max-w-[85%] w-auto h-auto object-contain mix-blend-multiply transform scale-[1.28]">
+                                alt="Propuesta A - Fondo Claro" class="max-h-[35vh] object-contain mix-blend-multiply">
                         </div>
                         <!-- Versión Oscura -->
-                        <div
-                            class="logo-preview-card bg-[#1E272E] p-4 sm:p-6 aspect-square sm:min-h-[280px] lg:min-h-[340px] flex flex-col items-center justify-center shadow-xs relative rounded-xs">
-                            <span class="card-tag-dark">Dark</span>
+                        <div class="bg-[#1E272E] p-6 aspect-square flex items-center justify-center shadow-sm relative">
+                            <div class="absolute top-4 left-4 text-claro/30 text-[10px] uppercase tracking-widest">Dark
+                                Mode</div>
                             <img src="https://raw.githubusercontent.com/dcardenas9/glob-jech-service-presentacion/main/img/Oscuro.png"
-                                alt="Propuesta A - Fondo Oscuro"
-                                class="max-h-[82%] max-w-[85%] w-auto h-auto object-contain transform scale-[1.28]">
+                                alt="Propuesta A - Fondo Oscuro" class="max-h-[35vh] object-contain">
                         </div>
                         <!-- Versión Mono -->
                         <div
-                            class="logo-preview-card bg-[#F8F7F4] p-4 sm:p-6 aspect-square sm:min-h-[280px] lg:min-h-[340px] flex flex-col items-center justify-center shadow-xs border border-oscuro/10 relative rounded-xs">
-                            <span class="card-tag-light">Mono</span>
+                            class="bg-[#F8F7F4] p-6 aspect-square flex items-center justify-center shadow-sm border border-oscuro/10 relative">
+                            <div class="absolute top-4 left-4 text-oscuro/30 text-[10px] uppercase tracking-widest">
+                                Monocromo</div>
                             <img src="https://raw.githubusercontent.com/dcardenas9/glob-jech-service-presentacion/main/img/Mono.png"
-                                alt="Propuesta A - Monocromo"
-                                class="max-h-[82%] max-w-[85%] w-auto h-auto object-contain mix-blend-multiply transform scale-[1.28]">
+                                alt="Propuesta A - Monocromo" class="max-h-[35vh] object-contain mix-blend-multiply">
                         </div>
                     </div>
-                </main>
-
-                <footer
-                    class="w-full border-t border-oscuro/10 pt-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs font-mono text-oscuro/50">
-                    <span>OPCIÓN A · EVOLUCIÓN DIRECTA & ROBUSTA</span>
-                    <span class="text-acento font-semibold uppercase tracking-widest">LÁMINA 03 / 08</span>
-                </footer>
+                </div>
             </div>
         </section>
 
         <!-- 04. PROPUESTA B -->
-        <section id="slide-4" class="slide slide-light">
-            <div class="bg-pattern"></div>
-            <div class="watermark">B</div>
+        <section class="bg-claro p-12 lg:p-24">
+            <div class="watermark text-[40vw] right-0 bottom-0 leading-none">B</div>
 
-            <div class="content-layer flex flex-col justify-between">
-                <header
-                    class="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-oscuro/10 pb-3.5 gap-2">
+            <div class="content-layer h-full flex flex-col max-w-7xl mx-auto w-full">
+                <header class="mb-8 flex justify-between items-end border-b border-oscuro/10 pb-6">
                     <div>
-                        <span class="text-acento font-bold font-mono tracking-widest uppercase text-xs block mb-0.5">03
-                            / Propuesta B</span>
-                        <h2 class="text-3xl sm:text-4xl font-display font-bold text-oscuro tracking-tight">La Conexión
-                            Protectora</h2>
+                        <h3 class="text-acento font-bold tracking-widest uppercase text-sm mb-2">03 / Propuesta B</h3>
+                        <h2 class="text-4xl font-display font-bold text-oscuro tracking-tight">La Conexión Protectora
+                        </h2>
                     </div>
-                    <div class="flex gap-2">
-                        <span class="badge border-oscuro/20 text-oscuro">Isologo</span>
-                        <span class="badge border-oscuro/20 text-oscuro">Rubik</span>
+                    <div class="flex gap-3">
+                        <span
+                            class="px-3 py-1 border border-oscuro/20 text-oscuro text-xs uppercase tracking-widest font-bold">Isologo</span>
+                        <span
+                            class="px-3 py-1 border border-oscuro/20 text-oscuro text-xs uppercase tracking-widest font-bold">Rubik</span>
                     </div>
                 </header>
 
-                <main
-                    class="layout-proposal-main grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto py-2">
-                    <div
-                        class="col-span-12 lg:col-span-3 border-b lg:border-b-0 lg:border-r border-oscuro/10 pb-4 lg:pb-0 lg:pr-6 flex flex-col justify-center">
-                        <h4 class="text-xs uppercase tracking-widest text-oscuro/50 font-bold mb-3 font-mono">Enfoque
-                            Conceptual</h4>
-                        <p class="text-sm text-oscuro/85 leading-relaxed mb-4 font-light">
+                <div class="grid grid-cols-4 gap-8 flex-grow">
+                    <div class="col-span-1 border-r border-oscuro/10 pr-8 flex flex-col justify-center">
+                        <h4 class="text-xs uppercase tracking-widest text-oscuro/50 font-bold mb-4">Enfoque</h4>
+                        <p class="text-sm text-oscuro/80 leading-relaxed">
                             Este camino explora una abstracción más sutil, donde la inicial 'J' de la marca se convierte
-                            en un elemento protector que envuelve y conecta los servicios.
-                        </p>
-                        <p class="text-sm text-oscuro/85 leading-relaxed font-light">
-                            Se enfoca en la <strong>Resolución</strong> y el carácter <strong>Metódico</strong>,
-                            transmitiendo una sensación de <strong>seguridad contenida</strong> y eficiencia.
+                            en un elemento protector que envuelve y conecta los servicios. Se enfoca en la
+                            <strong>Resolución</strong> y el carácter <strong>Metódico</strong>, transmitiendo una
+                            sensación de <strong>seguridad contenida</strong> y eficiencia.
                         </p>
                     </div>
 
-                    <div
-                        class="layout-proposal-cards col-span-12 lg:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-5 items-center">
+                    <div class="col-span-3 grid grid-cols-3 gap-6 items-center">
                         <div
-                            class="logo-preview-card bg-[#F8F7F4] tech-border p-4 sm:p-6 aspect-square sm:min-h-[280px] lg:min-h-[340px] flex flex-col items-center justify-center shadow-xs border border-oscuro/10 relative rounded-xs">
-                            <span class="card-tag-light">Luz</span>
+                            class="bg-[#F8F7F4] tech-border p-6 aspect-square flex items-center justify-center shadow-sm">
                             <img src="https://raw.githubusercontent.com/dcardenas9/glob-jech-service-presentacion/main/img/Claro2.png"
-                                alt="Propuesta B - Fondo Claro"
-                                class="max-h-[80%] max-w-[90%] w-auto h-auto object-contain mix-blend-multiply transform scale-[1.15]">
+                                alt="Propuesta B - Fondo Claro" class="max-h-[35vh] object-contain mix-blend-multiply">
                         </div>
-                        <div
-                            class="logo-preview-card bg-[#1E272E] p-4 sm:p-6 aspect-square sm:min-h-[280px] lg:min-h-[340px] flex flex-col items-center justify-center shadow-xs relative rounded-xs">
-                            <span class="card-tag-dark">Dark</span>
+                        <div class="bg-[#1E272E] p-6 aspect-square flex items-center justify-center shadow-sm relative">
+                            <div class="absolute top-4 left-4 text-claro/30 text-[10px] uppercase tracking-widest">Dark
+                                Mode</div>
                             <img src="https://raw.githubusercontent.com/dcardenas9/glob-jech-service-presentacion/main/img/Oscuro2.png"
-                                alt="Propuesta B - Fondo Oscuro"
-                                class="max-h-[80%] max-w-[90%] w-auto h-auto object-contain transform scale-[1.15]">
+                                alt="Propuesta B - Fondo Oscuro" class="max-h-[35vh] object-contain">
                         </div>
                         <div
-                            class="logo-preview-card bg-[#F8F7F4] p-4 sm:p-6 aspect-square sm:min-h-[280px] lg:min-h-[340px] flex flex-col items-center justify-center shadow-xs border border-oscuro/10 relative rounded-xs">
-                            <span class="card-tag-light">Mono</span>
+                            class="bg-[#F8F7F4] p-6 aspect-square flex items-center justify-center shadow-sm border border-oscuro/10 relative">
+                            <div class="absolute top-4 left-4 text-oscuro/30 text-[10px] uppercase tracking-widest">
+                                Monocromo</div>
                             <img src="https://raw.githubusercontent.com/dcardenas9/glob-jech-service-presentacion/main/img/Mono2.png"
-                                alt="Propuesta B - Monocromo"
-                                class="max-h-[80%] max-w-[90%] w-auto h-auto object-contain mix-blend-multiply transform scale-[1.15]">
+                                alt="Propuesta B - Monocromo" class="max-h-[35vh] object-contain mix-blend-multiply">
                         </div>
                     </div>
-                </main>
-
-                <footer
-                    class="w-full border-t border-oscuro/10 pt-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs font-mono text-oscuro/50">
-                    <span>OPCIÓN B · SÍNTESIS FLUIDA & ENVOLVENTE</span>
-                    <span class="text-acento font-semibold uppercase tracking-widest">LÁMINA 04 / 08</span>
-                </footer>
+                </div>
             </div>
         </section>
 
         <!-- 05. PROPUESTA C -->
-        <section id="slide-5" class="slide slide-light">
-            <div class="bg-pattern"></div>
-            <div class="watermark">C</div>
+        <section class="bg-claro p-12 lg:p-24">
+            <div class="watermark text-[40vw] right-0 bottom-0 leading-none">C</div>
 
-            <div class="content-layer flex flex-col justify-between">
-                <header
-                    class="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-oscuro/10 pb-3.5 gap-2">
+            <div class="content-layer h-full flex flex-col max-w-7xl mx-auto w-full">
+                <header class="mb-8 flex justify-between items-end border-b border-oscuro/10 pb-6">
                     <div>
-                        <span class="text-acento font-bold font-mono tracking-widest uppercase text-xs block mb-0.5">04
-                            / Propuesta C</span>
-                        <h2 class="text-3xl sm:text-4xl font-display font-bold text-oscuro tracking-tight">El Emblema
-                            Resolutivo</h2>
+                        <h3 class="text-acento font-bold tracking-widest uppercase text-sm mb-2">04 / Propuesta C</h3>
+                        <h2 class="text-4xl font-display font-bold text-oscuro tracking-tight">El Emblema Resolutivo
+                        </h2>
                     </div>
-                    <div class="flex gap-2">
-                        <span class="badge border-oscuro/20 text-oscuro">Isologo</span>
-                        <span class="badge border-oscuro/20 text-oscuro">Rubik</span>
+                    <div class="flex gap-3">
+                        <span
+                            class="px-3 py-1 border border-oscuro/20 text-oscuro text-xs uppercase tracking-widest font-bold">Isologo</span>
+                        <span
+                            class="px-3 py-1 border border-oscuro/20 text-oscuro text-xs uppercase tracking-widest font-bold">Rubik</span>
                     </div>
                 </header>
 
-                <main
-                    class="layout-proposal-main grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center my-auto py-2">
-                    <div
-                        class="col-span-12 lg:col-span-3 border-b lg:border-b-0 lg:border-r border-oscuro/10 pb-4 lg:pb-0 lg:pr-6 flex flex-col justify-center">
-                        <h4 class="text-xs uppercase tracking-widest text-oscuro/50 font-bold mb-3 font-mono">Enfoque
-                            Conceptual</h4>
-                        <p class="text-sm text-oscuro/85 leading-relaxed mb-4 font-light">
+                <div class="grid grid-cols-4 gap-8 flex-grow">
+                    <div class="col-span-1 border-r border-oscuro/10 pr-8 flex flex-col justify-center">
+                        <h4 class="text-xs uppercase tracking-widest text-oscuro/50 font-bold mb-4">Enfoque</h4>
+                        <p class="text-sm text-oscuro/80 leading-relaxed">
                             Esta propuesta es la más audaz, encarnando el arquetipo <strong>El Héroe</strong> con un
-                            emblema que sugiere acción y dirección inmediata.
-                        </p>
-                        <p class="text-sm text-oscuro/85 leading-relaxed font-light">
-                            Combina la <strong>robustez</strong> con una <strong>precisión estratégica</strong>,
-                            proyectando una imagen <strong>nítida</strong> y <strong>contundente</strong> para el
-                            especialista que resuelve.
+                            emblema que sugiere acción y dirección. Combina la <strong>robustez</strong> con una
+                            <strong>precisión estratégica</strong>, proyectando una imagen <strong>nítida</strong> y
+                            <strong>contundente</strong> para el especialista que resuelve.
                         </p>
                     </div>
 
-                    <div
-                        class="layout-proposal-cards col-span-12 lg:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-5 items-center">
+                    <div class="col-span-3 grid grid-cols-3 gap-6 items-center">
                         <div
-                            class="logo-preview-card bg-[#F8F7F4] tech-border p-4 sm:p-6 aspect-square sm:min-h-[280px] lg:min-h-[340px] flex flex-col items-center justify-center shadow-xs border border-oscuro/10 relative rounded-xs">
-                            <span class="card-tag-light">Luz</span>
+                            class="bg-[#F8F7F4] tech-border p-6 aspect-square flex items-center justify-center shadow-sm">
                             <img src="https://raw.githubusercontent.com/dcardenas9/glob-jech-service-presentacion/main/img/Claro3.png"
-                                alt="Propuesta C - Fondo Claro"
-                                class="max-h-[82%] max-w-[85%] w-auto h-auto object-contain mix-blend-multiply transform scale-[1.25]">
+                                alt="Propuesta C - Fondo Claro" class="max-h-[35vh] object-contain mix-blend-multiply">
                         </div>
-                        <div
-                            class="logo-preview-card bg-[#1E272E] p-4 sm:p-6 aspect-square sm:min-h-[280px] lg:min-h-[340px] flex flex-col items-center justify-center shadow-xs relative rounded-xs">
-                            <span class="card-tag-dark">Dark</span>
+                        <div class="bg-[#1E272E] p-6 aspect-square flex items-center justify-center shadow-sm relative">
+                            <div class="absolute top-4 left-4 text-claro/30 text-[10px] uppercase tracking-widest">Dark
+                                Mode</div>
                             <img src="https://raw.githubusercontent.com/dcardenas9/glob-jech-service-presentacion/main/img/Oscuro3.png"
-                                alt="Propuesta C - Fondo Oscuro"
-                                class="max-h-[82%] max-w-[85%] w-auto h-auto object-contain transform scale-[1.25]">
+                                alt="Propuesta C - Fondo Oscuro" class="max-h-[35vh] object-contain">
                         </div>
                         <div
-                            class="logo-preview-card bg-[#F8F7F4] p-4 sm:p-6 aspect-square sm:min-h-[280px] lg:min-h-[340px] flex flex-col items-center justify-center shadow-xs border border-oscuro/10 relative rounded-xs">
-                            <span class="card-tag-light">Mono</span>
+                            class="bg-[#F8F7F4] p-6 aspect-square flex items-center justify-center shadow-sm border border-oscuro/10 relative">
+                            <div class="absolute top-4 left-4 text-oscuro/30 text-[10px] uppercase tracking-widest">
+                                Monocromo</div>
                             <img src="https://raw.githubusercontent.com/dcardenas9/glob-jech-service-presentacion/main/img/Mono3.png"
-                                alt="Propuesta C - Monocromo"
-                                class="max-h-[82%] max-w-[85%] w-auto h-auto object-contain mix-blend-multiply transform scale-[1.25]">
+                                alt="Propuesta C - Monocromo" class="max-h-[35vh] object-contain mix-blend-multiply">
                         </div>
                     </div>
-                </main>
-
-                <footer
-                    class="w-full border-t border-oscuro/10 pt-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs font-mono text-oscuro/50">
-                    <span>OPCIÓN C · DIRECCIÓN ESTRATÉGICA & RESOLUCIÓN</span>
-                    <span class="text-acento font-semibold uppercase tracking-widest">LÁMINA 05 / 08</span>
-                </footer>
+                </div>
             </div>
         </section>
 
         <!-- 06. COMPARATIVA Y NUESTRA RECOMENDACIÓN -->
-        <section id="slide-6" class="slide slide-dark bg-oscuro text-claro">
+        <section class="bg-oscuro text-claro p-12 lg:p-24">
             <div class="bg-pattern-light"></div>
-            <div class="watermark watermark-light">VS</div>
+            <div class="watermark watermark-light text-[20vw] left-0 top-0 leading-none">VS</div>
 
-            <div class="content-layer flex flex-col justify-between">
-                <header
-                    class="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-claro/10 pb-3.5 gap-2">
+            <div class="content-layer h-full flex flex-col max-w-7xl mx-auto w-full">
+                <header class="mb-10 border-b border-claro/10 pb-6 flex justify-between items-end">
                     <div>
-                        <span class="text-acento font-bold font-mono tracking-widest uppercase text-xs block mb-0.5">05
-                            / Análisis Global</span>
-                        <h2 class="text-3xl sm:text-4xl font-display font-bold text-claro tracking-tight">Comparativa y
+                        <h3 class="text-acento font-bold tracking-widest uppercase text-sm mb-2">05 / Análisis Global
+                        </h3>
+                        <h2 class="text-4xl font-display font-bold text-claro tracking-tight">Comparativa y
                             Recomendación</h2>
                     </div>
-                    <span class="font-mono text-[10px] text-claro/50 uppercase tracking-widest">VEREDICTO GLOB
-                        STUDIO</span>
                 </header>
 
-                <main class="my-auto py-2 space-y-4">
-                    <!-- Vitrina Comparativa 3 Columnas -->
-                    <div class="layout-compare-cards grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="grid grid-cols-3 gap-8 mb-10">
+                    <div class="bg-claro p-6 aspect-[4/3] flex flex-col items-center justify-center relative">
                         <div
-                            class="bg-claro p-3 sm:p-4 aspect-[16/9] flex flex-col items-center justify-center relative rounded-xs border-2 border-acento shadow-sm">
-                            <div
-                                class="absolute top-2.5 left-2.5 bg-acento text-claro font-mono text-[9px] font-bold px-2 py-0.5 rounded-full tracking-wider">
-                                A · RECOMENDADA
-                            </div>
-                            <img src="https://raw.githubusercontent.com/dcardenas9/glob-jech-service-presentacion/main/img/Claro.png"
-                                alt="Propuesta A"
-                                class="max-h-[72%] max-w-[85%] w-auto object-contain mix-blend-multiply transform scale-[1.18]">
-                        </div>
+                            class="absolute top-3 left-3 bg-oscuro text-claro w-6 h-6 flex items-center justify-center font-bold text-xs rounded-full">
+                            A</div>
+                        <img src="https://raw.githubusercontent.com/dcardenas9/glob-jech-service-presentacion/main/img/Claro.png"
+                            alt="Propuesta A" class="max-h-[15vh] object-contain mix-blend-multiply">
+                    </div>
+                    <div class="bg-claro p-6 aspect-[4/3] flex flex-col items-center justify-center relative">
+                        <div
+                            class="absolute top-3 left-3 bg-oscuro text-claro w-6 h-6 flex items-center justify-center font-bold text-xs rounded-full">
+                            B</div>
+                        <img src="https://raw.githubusercontent.com/dcardenas9/glob-jech-service-presentacion/main/img/Claro2.png"
+                            alt="Propuesta B" class="max-h-[15vh] object-contain mix-blend-multiply">
+                    </div>
+                    <div class="bg-claro p-6 aspect-[4/3] flex flex-col items-center justify-center relative">
+                        <div
+                            class="absolute top-3 left-3 bg-oscuro text-claro w-6 h-6 flex items-center justify-center font-bold text-xs rounded-full">
+                            C</div>
+                        <img src="https://raw.githubusercontent.com/dcardenas9/glob-jech-service-presentacion/main/img/Claro3.png"
+                            alt="Propuesta C" class="max-h-[15vh] object-contain mix-blend-multiply">
+                    </div>
+                </div>
 
-                        <div
-                            class="bg-claro p-3 sm:p-4 aspect-[16/9] flex flex-col items-center justify-center relative rounded-xs border border-oscuro/10 opacity-80 hover:opacity-100 transition-opacity">
-                            <div
-                                class="absolute top-2.5 left-2.5 bg-oscuro text-claro font-mono text-[9px] font-bold px-2 py-0.5 rounded-full tracking-wider">
-                                B
-                            </div>
-                            <img src="https://raw.githubusercontent.com/dcardenas9/glob-jech-service-presentacion/main/img/Claro2.png"
-                                alt="Propuesta B"
-                                class="max-h-[72%] max-w-[85%] w-auto object-contain mix-blend-multiply transform scale-[1.08]">
+                <div class="grid grid-cols-3 gap-8 flex-grow">
+                    <div class="col-span-2 tech-border p-8 bg-claro/5">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span
+                                class="px-3 py-1 bg-acento text-claro text-[10px] uppercase tracking-widest font-bold">Veredicto
+                                Glob Studio</span>
+                            <h4 class="text-xl font-bold">Propuesta A: El Guardián Geométrico</h4>
                         </div>
-
-                        <div
-                            class="bg-claro p-3 sm:p-4 aspect-[16/9] flex flex-col items-center justify-center relative rounded-xs border border-oscuro/10 opacity-80 hover:opacity-100 transition-opacity">
-                            <div
-                                class="absolute top-2.5 left-2.5 bg-oscuro text-claro font-mono text-[9px] font-bold px-2 py-0.5 rounded-full tracking-wider">
-                                C
-                            </div>
-                            <img src="https://raw.githubusercontent.com/dcardenas9/glob-jech-service-presentacion/main/img/Claro3.png"
-                                alt="Propuesta C"
-                                class="max-h-[72%] max-w-[85%] w-auto object-contain mix-blend-multiply transform scale-[1.18]">
-                        </div>
+                        <p class="text-sm text-claro/80 leading-relaxed pr-8">
+                            Se alinea de manera óptima con el posicionamiento de JECH Service como referente confiable y
+                            prolijo para la seguridad del hogar y la climatización. Su diseño es una evolución directa
+                            de la idea original, ejecutada con precisión geométrica. Refleja fielmente el arquetipo
+                            <strong>El Cuidador</strong> y despierta <strong>Tranquilidad</strong>, al tiempo que su
+                            estructura robusta comunica la seriedad necesaria para diferenciarse de la competencia
+                            informal.
+                        </p>
                     </div>
 
-                    <!-- Veredicto y Paleta -->
-                    <div class="layout-compare-bottom grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-stretch">
-                        <div
-                            class="col-span-12 lg:col-span-8 tech-border p-4 sm:p-5 bg-claro/5 border border-claro/10 rounded-xs">
-                            <div class="flex flex-wrap items-center gap-2.5 mb-2.5">
-                                <span
-                                    class="px-2 py-0.5 bg-acento text-claro text-[9px] uppercase font-mono tracking-widest font-bold rounded-xs">Veredicto
-                                    Oficial</span>
-                                <h4 class="text-base sm:text-lg font-bold text-claro">Propuesta A: El Guardián
-                                    Geométrico</h4>
-                            </div>
-                            <p class="text-xs sm:text-sm text-claro/80 leading-relaxed font-light">
-                                Se alinea de manera óptima con el posicionamiento de <strong>JECH Service</strong> como
-                                referente confiable y prolijo para la seguridad del hogar y la climatización. Su diseño
-                                es una evolución directa de la idea original, ejecutada con precisión geométrica.
-                                Refleja fielmente el arquetipo <strong>El Cuidador</strong> y despierta
-                                <strong>Tranquilidad</strong>, al tiempo que su estructura robusta comunica la seriedad
-                                necesaria para diferenciarse de la competencia informal.
-                            </p>
-                        </div>
-
-                        <div
-                            class="col-span-12 lg:col-span-4 bg-claro/5 p-4 sm:p-5 border border-claro/10 rounded-xs flex flex-col justify-between">
-                            <h4 class="text-xs uppercase tracking-widest text-claro/60 font-bold mb-2 font-mono">Paleta
-                                Cromática Base</h4>
-                            <div class="flex flex-wrap gap-2.5 items-center">
-                                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#3A7CAC] border-2 border-claro/20 shadow-xs"
-                                    title="Azul Confianza #3A7CAC"></div>
-                                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#4F8055] border-2 border-claro/20 shadow-xs"
-                                    title="Verde Seguridad #4F8055"></div>
-                                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#1E272E] border-2 border-claro/40 shadow-xs"
-                                    title="Gris Pizarra #1E272E"></div>
-                                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#E8B547] border-2 border-claro/20 shadow-xs"
-                                    title="Acento Ámbar #E8B547"></div>
-                                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#F8F7F4] border-2 border-claro/20 shadow-xs"
-                                    title="Blanco Marfil #F8F7F4"></div>
-                            </div>
-                            <span class="font-mono text-[9px] text-claro/40 mt-2 block">5 TONOS OFICIALES</span>
+                    <div class="col-span-1 flex flex-col justify-end">
+                        <h4 class="text-xs uppercase tracking-widest text-claro/50 font-bold mb-4">Paleta de Color Base
+                        </h4>
+                        <div class="flex flex-wrap gap-3">
+                            <div class="w-12 h-12 bg-[#3A7CAC] rounded-full border-2 border-oscuro shadow-sm"></div>
+                            <div class="w-12 h-12 bg-[#4F8055] rounded-full border-2 border-oscuro shadow-sm"></div>
+                            <div class="w-12 h-12 bg-[#1E272E] rounded-full border-2 border-claro/20 shadow-sm"></div>
+                            <div class="w-12 h-12 bg-[#E8B547] rounded-full border-2 border-oscuro shadow-sm"></div>
+                            <div class="w-12 h-12 bg-[#F8F7F4] rounded-full border-2 border-oscuro shadow-sm"></div>
                         </div>
                     </div>
-                </main>
-
-                <footer
-                    class="w-full border-t border-claro/10 pt-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs font-mono text-claro/50">
-                    <span>ANÁLISIS ESTRATÉGICO & RECOMENDACIÓN DIRECTIVA</span>
-                    <span class="text-acento font-semibold uppercase tracking-widest">LÁMINA 06 / 08</span>
-                </footer>
+                </div>
             </div>
         </section>
 
         <!-- 07. EL POTENCIAL DE LA MARCA -->
-        <section id="slide-7" class="slide slide-light">
-            <div class="bg-pattern"></div>
-            <div class="watermark">MOCKUP</div>
+        <section class="bg-[#F8F7F4] p-12 lg:p-0 flex items-center justify-center">
+            <div class="content-layer h-full w-full flex flex-col justify-center items-center relative">
 
-            <div class="content-layer flex flex-col justify-between">
-                <header
-                    class="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-oscuro/10 pb-3.5 gap-2">
-                    <div>
-                        <span class="text-acento font-bold font-mono tracking-widest uppercase text-xs block mb-0.5">06
-                            / Aplicación Visual</span>
-                        <h2 class="text-3xl sm:text-4xl font-display font-bold text-oscuro tracking-tight">El potencial
-                            de la marca</h2>
-                    </div>
-                    <span class="font-mono text-[10px] text-oscuro/50 uppercase tracking-widest">SISTEMA EN
-                        ACCIÓN</span>
-                </header>
+                <div class="absolute top-12 left-12 lg:top-24 lg:left-24 z-20">
+                    <h3 class="text-acento font-bold tracking-widest uppercase text-sm mb-2">06 / Aplicación Visual</h3>
+                    <h2 class="text-4xl font-display font-bold text-oscuro tracking-tight drop-shadow-sm">El potencial
+                        de la marca</h2>
+                </div>
 
                 <!-- Aplicación / Mockup -->
-                <main class="w-full my-auto flex items-center justify-center p-2 sm:p-4">
-                    <div
-                        class="w-full max-w-4xl max-h-[60vh] sm:max-h-[68vh] flex items-center justify-center bg-white p-3 sm:p-6 rounded-sm border border-oscuro/10 shadow-lg">
-                        <img src="https://raw.githubusercontent.com/dcardenas9/glob-jech-service-presentacion/main/img/Rec-1.png"
-                            alt="Aplicación Visual de la Marca JECH Service"
-                            class="w-full max-h-[55vh] sm:max-h-[62vh] object-contain">
-                    </div>
-                </main>
+                <div class="w-full h-full flex items-center justify-center p-24">
+                    <img src="https://raw.githubusercontent.com/dcardenas9/glob-jech-service-presentacion/main/img/Rec-1.png"
+                        alt="Aplicación Visual de la Marca" class="w-full max-h-[75vh] object-contain shadow-2xl">
+                </div>
 
-                <footer
-                    class="w-full border-t border-oscuro/10 pt-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs font-mono text-oscuro/50">
-                    <span>MOCKUP EDITORIAL & PROYECCIÓN DE MARCA</span>
-                    <span class="text-acento font-semibold uppercase tracking-widest">LÁMINA 07 / 08</span>
-                </footer>
             </div>
         </section>
 
         <!-- 08. CIERRE Y PRÓXIMOS PASOS -->
-        <section id="slide-8" class="slide slide-dark bg-oscuro text-claro border-t-4 border-t-acento">
+        <section class="bg-oscuro text-claro p-12 lg:p-24 border-t-8 border-acento">
             <div class="bg-pattern-light"></div>
-            <div class="watermark watermark-light">END</div>
+            <div class="watermark watermark-light text-[30vw] right-0 top-0">END</div>
 
-            <div class="content-layer flex flex-col justify-between items-center text-center">
-                <header
-                    class="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-claro/10 pb-3.5 gap-2">
-                    <div class="flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-acento"></span>
-                        <span class="font-mono text-[10px] tracking-[0.25em] uppercase text-acento font-bold">FASE 02
-                            FINALIZADA</span>
-                    </div>
-                    <span class="font-mono text-[10px] text-claro/50 uppercase tracking-widest">DECISIÓN &
-                        ENTREGA</span>
-                </header>
-
-                <main class="my-auto py-6 max-w-3xl mx-auto">
-                    <svg class="w-12 h-12 mx-auto text-acento mb-4" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+            <div class="content-layer h-full flex flex-col justify-center max-w-4xl mx-auto text-center">
+                <div class="mb-12">
+                    <svg class="w-16 h-16 mx-auto text-acento mb-6" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                             d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
-
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight mb-4 text-claro">
-                        ¿Cuál es el siguiente paso?
-                    </h2>
-                    <p
-                        class="text-sm sm:text-base md:text-lg text-claro/75 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
-                        Tómate tu tiempo para convivir con cada propuesta. Te sugerimos evaluar cómo cada diseño
-                        responde a tus metas de crecimiento y a la confianza de tus clientes.
+                    <h2 class="text-5xl font-display font-bold tracking-tight mb-4">¿Cuál es el siguiente paso?</h2>
+                    <p class="text-xl text-claro/70 font-light leading-relaxed">
+                        Tómate tu tiempo para revisar cada propuesta en detalle. Te sugerimos evaluar cómo cada diseño
+                        responde a los objetivos comerciales y al perfil de tus clientes ideales.
                     </p>
+                </div>
 
-                    <div
-                        class="layout-closing-cards grid grid-cols-1 md:grid-cols-2 gap-4 text-left max-w-2xl mx-auto mb-8">
-                        <div class="tech-border p-5 bg-claro/5 border border-claro/10 rounded-xs">
-                            <h4 class="text-acento font-bold uppercase tracking-widest text-xs mb-1 font-mono">1.
-                                Selección</h4>
-                            <p class="text-xs sm:text-sm text-claro/80 leading-relaxed font-light">Elegí la propuesta
-                                (A, B o C) que sientas más representativa para el futuro de JECH Service.</p>
-                        </div>
-                        <div class="tech-border p-5 bg-claro/5 border border-claro/10 rounded-xs">
-                            <h4 class="text-acento font-bold uppercase tracking-widest text-xs mb-1 font-mono">2.
-                                Feedback</h4>
-                            <p class="text-xs sm:text-sm text-claro/80 leading-relaxed font-light">Envianos tus
-                                comentarios para consolidar el Manual de Marca oficial y los archivos maestros.</p>
-                        </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-2xl mx-auto">
+                    <div class="tech-border p-6 bg-claro/5">
+                        <h4 class="text-acento font-bold uppercase tracking-widest text-xs mb-2">1. Selección</h4>
+                        <p class="text-sm text-claro/80">Elegí la propuesta (A, B o C) que consideres más sólida para el
+                            futuro de JECH Service.</p>
                     </div>
-
-                    <div class="border-t border-claro/10 pt-6">
-                        <span class="text-[10px] uppercase font-mono tracking-widest text-claro/50 block mb-1">Contacto
-                            Dirección de Arte</span>
-                        <a href="mailto:hola@globstudio.com"
-                            class="text-xl sm:text-2xl font-mono text-claro hover:text-acento transition-colors underline decoration-acento/40 underline-offset-6">
-                            hola@globstudio.com
-                        </a>
+                    <div class="tech-border p-6 bg-claro/5">
+                        <h4 class="text-acento font-bold uppercase tracking-widest text-xs mb-2">2. Feedback</h4>
+                        <p class="text-sm text-claro/80">Envianos tus comentarios o confirmación de la propuesta
+                            ganadora para avanzar a la entrega final.</p>
                     </div>
-                </main>
+                </div>
 
-                <footer
-                    class="w-full border-t border-claro/10 pt-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs font-mono text-claro/50">
-                    <span>GLOB STUDIO · BRAND ARCHITECTURE</span>
-                    <span class="text-acento font-semibold uppercase tracking-widest">LÁMINA 08 / 08</span>
-                </footer>
+                <div class="mt-16 pt-8 border-t border-claro/10">
+                    <p class="text-xs uppercase tracking-widest text-claro/50 font-bold mb-2">Contacto Directo</p>
+                    <a href="mailto:hola@globstudio.com"
+                        class="text-xl font-mono text-claro hover:text-acento transition-colors">hola@globstudio.com</a>
+                </div>
             </div>
         </section>
 
     </main>
-
-    <script>
-        // Resaltar bullet de navegación activo al hacer scroll
-        const slides = document.querySelectorAll('.slide');
-        const bullets = document.querySelectorAll('.nav-bullet');
-        const container = document.querySelector('.presentation-container');
-
-        function updateActiveBullet() {
-            let currentSlideIndex = 0;
-            const scrollPos = window.scrollY || (container ? container.scrollTop : 0);
-
-            slides.forEach((slide, index) => {
-                const slideTop = slide.offsetTop - 180;
-                if (scrollPos >= slideTop) {
-                    currentSlideIndex = index;
-                }
-            });
-
-            bullets.forEach((bullet, index) => {
-                if (index === currentSlideIndex) {
-                    bullet.classList.add('active');
-                } else {
-                    bullet.classList.remove('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', updateActiveBullet, { passive: true });
-        if (container) {
-            container.addEventListener('scroll', updateActiveBullet, { passive: true });
-        }
-        updateActiveBullet();
-
-        // Navegación por teclado (Flechas Arriba/Abajo y RePág/AvPág)
-        window.addEventListener('keydown', (e) => {
-            const activeIndex = Array.from(bullets).findIndex(b => b.classList.contains('active'));
-            if (e.key === 'ArrowDown' || e.key === 'PageDown') {
-                if (activeIndex < slides.length - 1) {
-                    slides[activeIndex + 1].scrollIntoView({ behavior: 'smooth' });
-                    e.preventDefault();
-                }
-            } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-                if (activeIndex > 0) {
-                    slides[activeIndex - 1].scrollIntoView({ behavior: 'smooth' });
-                    e.preventDefault();
-                }
-            }
-        });
-    </script>
 
 </body>
 
